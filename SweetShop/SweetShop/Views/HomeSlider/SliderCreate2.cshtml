@@ -1,0 +1,13 @@
+﻿@using SweetShop.Resources
+@{
+    ViewBag.Title = "SliderCreate2";
+}
+
+<h2 class="yazi" style="margin-top:30px;">@Lang.CreateNewSlider</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <label class="control-label yazi">@Lang.ImageURL</label>
+    <br />
+    <input type="file" class="form-control" name="ImageFile" /><br />
+    <button>@Lang.Save</button>
+</form>

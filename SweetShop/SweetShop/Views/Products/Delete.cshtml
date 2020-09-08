@@ -1,0 +1,82 @@
+﻿ @using SweetShop.Resources
+@model Entity.Product
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="yazi" style="padding-top:20px;">@Lang.Delete</h2>
+
+<h3 class="yazi">@Lang.Question</h3>
+<div class="yazi">
+    <h4>@Lang.Product</h4>
+    <hr />
+    <dl class="dl-horizontal yazi5">
+        <dt>
+           @Lang.ProductName
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Lang.Price
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductPrice)
+        </dd>
+
+        <dt>
+           @Lang.Description
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductDescription)
+        </dd>
+
+        <dt>
+            @Lang.Calori
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calori)
+        </dd>
+
+        <dt>
+            @Lang.Image
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductImageUrl)
+        </dd>
+
+        <dt>
+            @Lang.Piece
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Piece)
+        </dd>
+
+        <dt>
+           @Lang.CategoryName
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color yazi">
+            <input type="submit" value="@Lang.Delete" class="btn btn-danger" /> |
+            @Html.ActionLink(Lang.Back, "Index", null, new { @class = "yazi" })
+        </div>
+    }
+</div>

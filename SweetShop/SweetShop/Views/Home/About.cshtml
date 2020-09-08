@@ -1,0 +1,108 @@
+﻿@using SweetShop.Resources
+@using Entity
+@model List<Slider>
+@{
+    ViewBag.Title =Lang.AboutUs;
+}
+
+@section CSS{
+    <link href="~/Content/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/Content/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <style>
+        .ilkharfbuyuk {
+            line-height: 30px;
+            width: 100%;
+        }
+
+        p:first-letter {
+            font-size: 60px;
+            padding-right: 5px;
+        }
+        .cizgi {
+            border-top: 1px solid #000;
+            width: 50%;
+        }
+
+        .Num {
+            color: #000;
+        }
+
+            .Num:link {
+                text-decoration: none;
+            }
+
+        #author .Num {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+
+}
+
+
+<div class="container">
+    <div>
+        <div class="owl-carousel owl-theme" style="padding-top:20px;margin-top:10px;padding-left:100px;">
+            @foreach (var item in Model)
+            {
+                <div class="item yazi">
+                    <img src="@item.LargeImageUrl" style="width:950px;height:500px;"/>
+                </div>
+            }
+            
+        </div>
+        <h1 class="yazi" style="text-align:center;font-size:75px;">@Lang.AboutUs</h1>
+            @*<p class="yazi ilkharfbuyuk" style="font-size:large;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum scelerisque tellus eget pulvinar. Nullam mollis ligula et tortor dignissim, in bibendum erat consectetur. Morbi interdum volutpat ligula et elementum. Cras eget venenatis metus. Vivamus venenatis imperdiet ante et faucibus. Nam tortor ipsum, ullamcorper eget neque gravida, ultrices aliquet sapien. Morbi sollicitudin sem diam, in rutrum mauris vehicula in. Donec ultricies mi erat. Fusce ullamcorper tincidunt tellus et convallis. In et ligula dui. Quisque convallis et neque sed mollis. Etiam eu massa rutrum, dictum erat a, laoreet purus. Sed maximus purus sit amet diam efficitur, vel imperdiet purus efficitur. Morbi id nunc eget nibh facilisis posuere non at erat.
+
+                Vivamus ullamcorper est sodales risus aliquet, ac cursus eros luctus. Donec condimentum ex eget quam tincidunt, a efficitur dui efficitur. Sed enim massa, volutpat vel ex eu, placerat cursus ipsum. Nunc felis turpis, ultricies at ullamcorper ut, tincidunt hendrerit elit. Proin placerat velit ac erat ultricies, vel aliquet ante tincidunt. Pellentesque ac est velit. Sed tellus urna, pellentesque vulputate accumsan at, ullamcorper eu magna. Etiam id ullamcorper leo. Vestibulum quis odio mauris. Mauris pellentesque accumsan dui, non tempor turpis convallis eu. Sed ac venenatis velit, vitae vehicula tortor. Praesent varius velit eget ligula sodales posuere. Duis sollicitudin laoreet justo, a bibendum quam vestibulum vel. Vivamus non velit at nisi porta pharetra vel et nisi.
+
+                Cras feugiat, tortor et vestibulum malesuada, diam orci laoreet elit, ut egestas lorem nibh id justo. Quisque commodo magna non nisl molestie, in suscipit lorem euismod. Pellentesque eu nisl ligula. Ut facilisis sagittis augue sit amet ullamcorper. Curabitur sollicitudin faucibus elit at efficitur. Vestibulum ultricies facilisis mi. Sed placerat faucibus nunc, nec imperdiet tortor mollis sit amet. Nam sit amet maximus tellus, ac porta dolor. Ut ac odio dui. Sed sit amet facilisis nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam vitae mauris varius, porta purus quis, convallis nunc. Aliquam auctor mi non metus luctus malesuada. Mauris in euismod metus. Vestibulum congue velit sed odio blandit aliquet. Nulla facilisi.
+
+                Mauris ut metus sit amet augue pellentesque commodo sed eu tortor. Nam consectetur, diam ut ullamcorper consequat, eros tortor luctus turpis, quis aliquet quam purus eget mi. Ut justo neque, molestie a aliquam id, commodo id lacus. Aenean vel felis vitae dolor efficitur malesuada ut a lacus. Phasellus eros nisi, dictum vel blandit sit amet, porttitor et eros. Maecenas vitae ipsum eleifend, viverra lectus eu, facilisis ante. Cras elit ipsum, dapibus eu imperdiet quis, scelerisque egestas magna. Mauris mollis sagittis nunc, quis eleifend mauris. Phasellus quis pharetra mauris. Sed vitae ante et tellus dapibus dignissim. Nulla facilisi. Morbi vulputate euismod tellus, eu iaculis nunc tristique ut. Ut vulputate arcu nec interdum pulvinar. Nam magna arcu, pellentesque eget finibus non, vehicula ut sem. Nulla vestibulum hendrerit est. Vestibulum dapibus, felis a faucibus dictum, augue nibh egestas orci, at tincidunt nunc massa eget nisl.
+
+                Pellentesque felis ex, dictum nec orci gravida, lacinia mattis lectus. Nulla facilisi. Mauris scelerisque ut lacus vel viverra. Nullam aliquet sit amet massa eu dictum. Sed laoreet commodo sapien, eget ornare mauris efficitur quis. Pellentesque vel leo ut elit finibus pretium sit amet a lectus. Vivamus nec tellus neque. Praesent ac porta ipsum.
+            </p>*@
+        <br /><br />
+    </div>
+
+
+    <h1 class="text-center yazi" style="font-size:40px;">@Lang.Contact</h1>
+    <hr class="cizgi">
+    <div class="row">
+        <div class="col-sm-8">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1460.1257812341894!2d27.851786326468343!3d39.65782188867645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b70194d31356a7%3A0xc45ef6ddbb80be4c!2sKaramel+Pastanesi!5e0!3m2!1str!2str!4v1552644803678" width="600" height="450" frameborder="0" style="border:0;margin-left:165px;" allowfullscreen></iframe>
+        </div>
+        <div class="col-sm-4" id="contact2">
+            <h4 class="pt-2 yazi">@Lang.Adress:</h4>
+            <i class="fas fa-globe " style="color:#000"></i> Kuva-i̇ Milliye Mahallesi, Cihat Bilgihan Cd. 126 A, 10030 Balıkesir Merkez/Balıkesir<br>
+            <h4 class="pt-2 yazi">@Lang.ContactNumber:</h4>
+            <i class="fas fa-phone" style="color:#000"></i> <a href="tel:+" class="Num"> 02662240333 </a><br>
+            <i class="fab fa-whatsapp" style="color:#000"></i><a href="tel:+" class="Num"> 05073603675 </a><br>
+            <h4 class="pt-2 yazi">@Lang.Email</h4>
+            <i class="fa fa-envelope" style="color:#000"></i> <a href="" class="Num ">smt.gdrr@gmail.com</a><br>
+            <h4 class="pt-2 yazi">@Lang.SocialMedia</h4>
+            <i class="yazi" style="color:#000"></i> <a href="https://www.facebook.com/pages/Karamel-Pasta-cafe/602195669987506" class="Num " target="_blank"><img src="~/Content/Image/Facebook.png" style="width:30px;height:30px;"/>Facebook</a><br>
+            <i class="yazi" style="color:#000"></i> <a href="https://www.instagram.com/karamelpastanesii/?hl=tr" class="Num " target="_blank"><img src="~/Content/Image/instagram.png" style="width:30px;height:30px;"/>Instagram</a><br>
+            @*<i class="yazi" style="color:#000"></i> <a href="" class="Num "><img src="~/Content/Image/Twitter.png" style="width:30px;height:30px;"/>Twitter</a><br>*@
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/Content/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true
+        });
+
+    </script>
+}

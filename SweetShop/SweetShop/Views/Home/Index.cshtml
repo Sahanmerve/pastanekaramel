@@ -1,0 +1,120 @@
+﻿@using SweetShop.Resources
+@using Entity
+@model List<Category>
+
+@{
+    ViewBag.Title = Lang.Home;
+    //Layout = null;
+}
+@section CSS{
+    <link href="~/Content/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/Content/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <style>
+        .baslik {
+            font-family: 'Courgette', cursive;
+            font-size: 60px;
+            font-weight: 700;
+            margin-top: 50px;
+            color: #888989;
+        }
+
+        .a {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            display: inline-block;
+        }
+
+        .b {
+            display: block;
+            width: 300px;
+            height: 200px;
+        }
+
+        .overlay {
+            position: absolute;
+            transition: all .3s ease;
+            opacity: 0;
+            transition: 0.9s;
+            background: #805555;
+        }
+
+        .a:hover .overlay {
+            opacity: 1;
+        }
+
+        .c {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: #222222;
+        }
+
+            .c:hover {
+                color: #F6F6F6;
+            }
+
+        .overlayleft {
+            height: 100%;
+            width: 0;
+            top: 0;
+            left: 0;
+            background: rgba(177,96,7,0.7);
+        }
+
+
+        .a:hover .overlayleft {
+            width: 100%;
+        }
+    </style>
+
+}
+
+    <h1 class="baslik" align="center" style="color:#222222;">@*<img src="~/Content/Image/kara.png" style="width:100px;height:100px;" />*@ @Lang.SiteTitle @Lang.Patisserie @*<img src="~/Content/Image/kara.png" style="width:100px;height:100px;" />*@ </h1>
+<div class="container">
+    <div class="owl-carousel owl-theme" style="margin-top:10px;padding-left:100px;">
+        @foreach (HomeSlider item in ViewBag.Sliders)
+        {
+            <div class="item">
+                <img src="@item.HomeLargeImageUrl" style="width:910px;height:400px;" />
+            </div>
+        }
+
+    </div>
+</div>
+
+
+<div align="center">
+    <div style="width:1000px">
+        @foreach (var item in Model)
+        {
+            <div class="a">
+                <img src="/Uploads/Categories/@Html.Raw(item.CategoryImageURL)" alt="img" class="b">
+                <div class="overlay overlayleft">
+                    <div class="c yazi"><a href="/Home/CategoryDetail/@item.ID" class="c yazi" style="font-size:35px;">@item.CategoryName</a></div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script src="~/Content/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true
+        });
+
+    </script>
+}

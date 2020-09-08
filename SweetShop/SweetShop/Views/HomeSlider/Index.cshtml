@@ -1,0 +1,22 @@
+﻿@using SweetShop.Resources
+@using Entity
+@model List<HomeSlider>
+@{
+    ViewBag.Title = "Home Slider";
+}
+
+<h2 class="yazi" style="margin-top:30px;">@Lang.HomeSlider</h2>
+<a href="/HomeSlider/SliderCreate2/" style="margin-bottom:10px;" class="btn btn-default yazi">@Lang.CreateNewSlider</a>
+<table class="table table-bordered table-striped yazi">
+    <tr>
+        <th>@Lang.Thumbnail</th>
+        <th>@Lang.Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><img src="@item.HomeThumbnaiURL" style="width:350px;height:175px;"/></td>
+            <td><a href="/HomeSlider/DeleteSlider/@item.ID" class="btn btn-danger">@Lang.Delete</a></td>
+        </tr>
+    }
+</table>

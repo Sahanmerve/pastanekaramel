@@ -1,0 +1,42 @@
+﻿@using SweetShop.Resources
+@model Entity.Category
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="yazi" style="padding-top:20px;">@Lang.Delete</h2>
+
+<h3 class="yazi">@Lang.Question</h3>
+<div class="yazi">
+    <h4>@Lang.Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Lang.CategoryName
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+        <dt>
+            @Lang.Image
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryImageURL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color yazi">
+            <input type="submit" value="@Lang.Delete" class="btn btn-danger" /> |
+            @Html.ActionLink(Lang.Back, "Index")
+        </div>
+    }
+</div>

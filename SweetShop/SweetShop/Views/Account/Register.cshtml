@@ -1,0 +1,64 @@
+﻿@using SweetShop.Resources
+@model SweetShop.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2 class="yazi" style="margin-top:30px;">@Lang.Register</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4 class="yazi">@Lang.CreateNewRegister</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger yazi" })
+    <div class="form-group yazi">
+        @Html.LabelFor(m => m.NameSurname,Lang.NameSurname, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.NameSurname, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group yazi">
+        @Html.LabelFor(m => m.Email,Lang.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group yazi">
+        @Html.LabelFor(m => m.Adress,Lang.Adress, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Adress, new { @class = "form-control" })
+        </div>
+    </div> 
+    <div class="form-group yazi">
+       <label class="control-label col-md-2">@Lang.Gender</label>
+        <div class="col-md-10">
+            <input name="Gender" type="radio" value="0" /> @Lang.Male
+            <input name="Gender" type="radio" value="1" /> @Lang.Female
+        </div>
+    </div>
+
+    <div class="form-group yazi">
+        @Html.LabelFor(m => m.Password,Lang.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group yazi">
+        @Html.LabelFor(m => m.ConfirmPassword,Lang.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group yazi">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default yazi" value="@Lang.Register" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,41 @@
+﻿@using SweetShop.Resources
+@model IEnumerable<Entity.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="yazi" style="margin-top:25px;">@Lang.Category</h2>
+
+<p>
+    @Html.ActionLink(Lang.CreateNewCategory, "Create", null, new { @class = "btn btn-default yazi" })
+</p>
+<table class="table table-bordered table-hover table-striped yazi">
+    <tr>
+        <th>
+            @Lang.CategoryName
+        </th>
+        <th>
+            @Lang.ImageURL
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryImageURL)
+            </td>
+            <td>
+                @Html.ActionLink(Lang.Edit, "Edit", null,  new { id = item.ID }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink(Lang.Details, "Details",  new { id = item.ID }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink(Lang.Delete, "Delete",  new { id = item.ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,69 @@
+﻿@using SweetShop.Resources
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @Lang.SiteTitle</title>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    <link rel="icon" href="https://pastanekaramel.com/" type="image/x-icon"/>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("CSS", false)
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Index/"><img src="~/Content/Image/Logo.PNG" style="width:70px;height:70px;" /></a>
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="margin-top:20px;">
+                    <li><a href="/Home/Index/" style="color:#FAC189" class="yazi">@Lang.Home</a></li>
+                    <li><a href="/Home/About/" style="color:#FAC189" class="yazi">@Lang.AboutUs</a></li>
+                    @if (User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                    {
+                        <li><a href="/MyAccount/Index/" style="color:#FAC189" class="yazi">@Lang.Settings</a></li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="dropdown-menu" style="background-color:#222222;">
+                            <a href="javascript:void(0)" class="dropdown-toggle yazi" data-toggle="dropdown" style="color:#FAC189;padding-top:5px;padding-bottom:5px;">@Lang.Operation<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" style="background-color:#222222;">
+                                <li><a href="/Products/" style="color:#FAC189" class="yazi">@Lang.ProductOperations</a></li>
+                                <li><a href="/Categories/" style="color:#FAC189" class="yazi">@Lang.CategoryOperations</a></li>
+                                <li><a href="/Admin/Slider/" class="yazi" style="color:#FAC189;">@Lang.ManageSlider</a></li>
+                                <li>
+                                    <a href="/HomeSlider/Index/" class="yazi" style="color:#FAC189;">@Lang.HomeSlider</a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer class="yazi">
+                @*<p>@Lang.Copyright  &copy; @DateTime.Now.Year - @Lang.Allrights</p>*@
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
+</body>
+</html>

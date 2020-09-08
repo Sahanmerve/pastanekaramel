@@ -1,0 +1,64 @@
+﻿@using SweetShop.Resources
+@using SweetShop.Models
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<h2 class="yazi" style="margin-top:40px;text-align:center;font-size:50px;">@Lang.LogIn</h2>
+<div class="row yazi" style="text-align:center">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()               
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email,Lang.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password,Lang.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe,Lang.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@Lang.LogIn" class="btn btn-default yazi" />
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink(Lang.CreateRegister, "Register")
+                </p>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
+            }
+        </section>
+    </div>
+    @*<div class="col-md-4">
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

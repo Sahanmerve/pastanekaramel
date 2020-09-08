@@ -1,0 +1,50 @@
+﻿@using SweetShop.Resources
+@using Entity
+@model Customer
+
+@section CSS{
+    <style>  
+        .yazi2 {
+            font-size: 20px;
+        }
+    </style>
+
+}
+<div class="tab-content yazi">
+    <div class="tab-pane active" id="home">
+        <hr>
+        <form class="form" action="##" method="post" id="registrationForm">
+            <div class="form-group">
+                <label for="first_name"><h4>@Lang.NameSurname</h4></label>
+                <input type="text" class="form-control" name="NameSurname" value="@Model.NameSurname" id="first_name" placeholder="Name Surname" title="enter your Name Surname if any.">
+            </div>
+            <div class="form-group">
+                <label for="email"><h4>@Lang.Email</h4></label>
+                <input type="email" class="form-control" value="@Model.Email " name="Email" id="email" placeholder="you@email.com" title="enter your email.">
+            </div>
+            <div class="form-group">
+                <label for="last_name"><h4>@Lang.Adress</h4></label>
+                <input type="text" class="form-control" name="Adress" id="last_name" placeholder="Adress" title="enter your Adress if any." value="@Model.Adress">
+            </div>
+            <div class="form-group">
+                <label for="mobile"><h4>@Lang.Mobile</h4></label>
+                <input type="text" class="form-control" name="PhoneNumber" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any." value="@Model.PhoneNumber">
+            </div>
+            <div class="form-group yazi2" >
+                <label class="control-label">@Lang.Gender</label>
+                <input name="Gender" type="radio" value="0" @Html.Raw(Model.Gender== Gender.Male ? "checked" : "") /> @Lang.Male
+                <input name="Gender" type="radio" value="1" @Html.Raw(Model.Gender== Gender.Female ? "checked" : "")/> @Lang.Female
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <br>
+                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> @Lang.Save</button>
+                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> @Lang.Reset</button>
+                </div>
+            </div>
+            <br /><br />
+
+        </form>
+    </div><!--/tab-pane-->
+</div>
